@@ -1,8 +1,8 @@
 #!/bin/bash
 
-PHOTON_ROUTER_IP=192.168.30.2
-PHOTON_ROUTER_GW=192.168.30.1
-PHOTON_ROUTER_DNS=192.168.30.1
+PHOTON_ROUTER_IP=192.168.2.3
+PHOTON_ROUTER_GW=192.168.2.1
+PHOTON_ROUTER_DNS=192.168.0.1
 SETUP_DNS_SERVER=1
 
 tdnf -y update
@@ -15,24 +15,24 @@ if [ ${SETUP_DNS_SERVER} -eq 1 ]; then
         port: 53
         do-ip4: yes
         do-udp: yes
-        access-control: 192.168.30.0/24 allow
+        access-control: 192.168.2.0/24 allow
         access-control: 10.10.0.0/24 allow
         access-control: 10.20.0.0/24 allow
         verbosity: 1
 
     local-zone: "tanzu.local." static
 
-    local-data: "router.tanzu.local A 192.168.30.2"
-    local-data-ptr: "192.168.30.2 router.tanzu.local"
+    local-data: "router.tanzu.local A 192.168.2.3"
+    local-data-ptr: "192.168.2.3 router.tanzu.local"
 
-    local-data: "vcsa.tanzu.local A 192.168.30.5"
-    local-data-ptr: "192.168.30.5 vcsa.tanzu.local"
+    local-data: "vcsa.tanzu.local A 192.168.2.5"
+    local-data-ptr: "192.168.2.5 vcsa.tanzu.local"
 
-    local-data: "haproxy.tanzu.local A 192.168.30.6"
-    local-data-ptr: "192.168.30.6 haproxy.tanzu.local"
+    local-data: "haproxy.tanzu.local A 192.168.2.6"
+    local-data-ptr: "192.168.2.6 haproxy.tanzu.local"
 
-    local-data: "esxi-01.tanzu.local A 192.168.30.227"
-    local-data-ptr: "192.168.30.227 esxi-01.tanzu.local"
+    local-data: "esxi-01.tanzu.local A 192.168.2.2"
+    local-data-ptr: "192.168.2.2 esxi-01.tanzu.local"
 
     forward-zone:
         name: "."

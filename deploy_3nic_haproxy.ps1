@@ -3,18 +3,18 @@
 # Blog: https://www.virtuallyghetto.com/2020/11/automating-haproxy-vm-deployment-with-3-nic-configuration-using-powercli.html
 # Description: Deploy HAProxy VM w/3-NIC Configuration
 
-$HAProxyOVA = "/Volumes/Storage/Software/vmware-haproxy-v0.1.8.ova"
+$HAProxyOVA = "/Volumes/Data/ben/Downloads/vmware-haproxy-v0.1.8.ova"
 
 $Cluster = "Tanzu-Cluster"
 $VMHost = "esxi-01.tanzu.local"
-$Datastore = "local-vmfs"
+$Datastore = "datastore2"
 
 $HAProxyDisplayName = "haproxy.tanzu.local"
 $HAProxyHostname = "haproxy.tanzu.local"
-$HAProxyDNS = "192.168.30.2"
+$HAProxyDNS = "192.168.2.3"
 $HAProxyManagementNetwork = "Management"
-$HAProxyManagementIPAddress = "192.168.30.6/24" # Format is IP Address/CIDR Prefix
-$HAProxyManagementGateway = "192.168.30.1"
+$HAProxyManagementIPAddress = "192.168.2.6/24" # Format is IP Address/CIDR Prefix
+$HAProxyManagementGateway = "192.168.2.1"
 $HAProxyFrontendNetwork = "Frontend"
 $HAProxyFrontendIPAddress = "10.10.0.2/24" # Format is IP Address/CIDR Prefix
 $HAProxyFrontendGateway = "10.10.0.1"
@@ -22,10 +22,10 @@ $HAProxyWorkloadNetwork = "Workload"
 $HAProxyWorkloadIPAddress = "10.20.0.2/24" # Format is IP Address/CIDR Prefix
 $HAProxyWorkloadGateway = "10.20.0.1"
 $HAProxyLoadBalanceIPRange = "10.10.0.64/26" # Format is Network CIDR Notation
-$HAProxyOSPassword = "VMware1!"
+$HAProxyOSPassword = "VMware123!"
 $HAProxyPort = "5556"
 $HAProxyUsername = "wcp"
-$HAProxyPassword = "VMware1!"
+$HAProxyPassword = "VMware123!"
 
 ### DO NOT EDIT BEYOND HERE ###
 

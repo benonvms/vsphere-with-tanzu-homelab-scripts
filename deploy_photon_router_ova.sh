@@ -2,18 +2,18 @@
 # William Lam
 # www.virtuallyghetto
 
-PhotonOVA="/Volumes/Storage/Software/photon-hw13_uefi-3.0-a383732.ova"
+PhotonOVA="/Volumes/Data/ben/Downloads/photon-hw13_uefi-3.0-a383732.ova"
 PhotonRouterVMName="router.tanzu.local"
-ESXiHostname="esxi-01.tanzu.local"
+ESXiHostname="192.168.2.2"
 ESXiUsername="root"
-ESXiPassword='VMware1!'
+ESXiPassword='VMware123!'
 
 PhotonRouterNetwork="VM Network"
-PhotonRouterDatastore="local-vmfs"
+PhotonRouterDatastore="datastore1"
 
 ### DO NOT EDIT BEYOND HERE ###
 
-ovftool \
+/Applications/VMware\ OVF\ Tool/ovftool \
 --name=${PhotonRouterVMName} \
 --X:waitForIpv4 \
 --powerOn \
